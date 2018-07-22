@@ -14,12 +14,15 @@ public class SampleData {
 	 *  sample creating a new  category
 	 */
 	public static final Category food = new Category("food");
+	public static final Category foodFress = new Category("food",food);
+
 	
 	/**
 	 *  sample products
 	 */
     public static final Product apple = new Product("Apple", 100.0, food);
     public static final Product almond = new Product("Almonds", 150.0, food);
+    public static final Product almondFress = new Product("almondFress", 150.0, foodFress);
     
     /**
      * discount rules can be 20% on a category if bought more than 3 items
@@ -35,6 +38,11 @@ public class SampleData {
      * discount rule 5 TL amount discount on a category if bought more than items
      */
     public static final Campaign campaign3 = new Campaign(food, 5.0, 0, DiscountType.Amount);
+    
+    /**
+     * discount rule 5 TL amount discount on a subCategory if bought more than items
+     */
+    public static final Campaign campaign4 = new Campaign(foodFress, 5.0, 0, DiscountType.Amount);
     
     /**
      *  coupon for 100 TL min purchase amount for a 10% discount

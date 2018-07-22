@@ -1,9 +1,13 @@
 package com.trendyol.example;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.trendyol.constants.BaseConstants;
 import com.trendyol.data.SampleCampaignSource;
 import com.trendyol.data.SampleData;
 import com.trendyol.domain.ShoppingCard;
+import com.trendyol.entity.campaign.Campaign;
 import com.trendyol.service.CampaignCalculator;
 import com.trendyol.service.CouponCalculator;
 import com.trendyol.service.DeliveryCostCalculator;
@@ -19,7 +23,8 @@ public class SampleRunner {
 		ShoppingCard shoppingCard = new ShoppingCard();
 		DeliveryCostCalculator deliveryCostCalculator = 
 				new DeliveryCostCalculatorImpl(BaseConstants.costPerDelivery, BaseConstants.costPerProduct, BaseConstants.fixedCost);
-		SampleCampaignSource sampleCampaignSource = new SampleCampaignSource();
+		List<Campaign> campaigns = Arrays.asList(SampleData.campaign1,SampleData.campaign2,SampleData.campaign3);
+		SampleCampaignSource sampleCampaignSource = new SampleCampaignSource(campaigns);
 		CampaignCalculator campaignCalculator = new CampaignCalculatorImpl(sampleCampaignSource);
 		
 		CouponCalculator couponCalculator = new CouponCalculatorImpl();

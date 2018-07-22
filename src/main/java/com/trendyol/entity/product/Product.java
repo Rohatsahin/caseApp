@@ -25,16 +25,8 @@ public class Product extends AbstractEntity {
 		return price;
 	}
 
-	public void setPrice(double price) {
-		this.price = price;
-	}
-
 	public Category getCategory() {
 		return category;
-	}
-
-	public void setCategory(Category category) {
-		this.category = category;
 	}
 
 	@Override

@@ -26,7 +26,7 @@ public class ProductUtilsTest {
 	}
 	
 	@Test
-	public void shouldReturnZeroForDeliveryWhenProductsNotHaveCategory() {
+	public void shouldReturnZeroDeliveryWhenProductsNotHaveCategory() {
 		
 		Product product = new ProductBuilder().title("cable").price(100.0).category(null).build();
 		Product product1 = new ProductBuilder().title("batery").price(150.0).category(null).build();
@@ -39,7 +39,7 @@ public class ProductUtilsTest {
 	}
 	
 	@Test
-	public void shouldReturnGreaterThanZeroForDeliveryWhenProductsHaveCategory() {
+	public void shouldReturnGreaterThanZeroDeliveryWhenProductsHaveCategory() {
 		
 		Category category = new CategoryBuilder().title("electronic").build();
 		Product product = new ProductBuilder().title("cable").price(100.0).category(category).build();

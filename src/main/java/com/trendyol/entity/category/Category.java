@@ -21,10 +21,6 @@ public class Category extends AbstractEntity {
 		return parentCategory;
 	}
 
-	public void setParentCategory(Category parentCategory) {
-		this.parentCategory = parentCategory;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;

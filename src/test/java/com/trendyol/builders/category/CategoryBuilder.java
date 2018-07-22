@@ -21,8 +21,7 @@ public class CategoryBuilder extends AbstractBuilder<Category> {
 
 	@Override
 	public Category build() {
-		Category category = new Category(title);
-		category.setParentCategory(parentCategory);
+		Category category = new Category(title,parentCategory);
 		return category;
 	}
 

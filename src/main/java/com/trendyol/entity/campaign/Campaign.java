@@ -28,32 +28,17 @@ public class Campaign implements Serializable {
 		return category;
 	}
 
-	public void setCategory(Category category) {
-		this.category = category;
-	}
-
 	public double getDiscount() {
 		return discount;
-	}
-
-	public void setDiscount(double discount) {
-		this.discount = discount;
 	}
 
 	public long getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(long quantity) {
-		this.quantity = quantity;
-	}
 
 	public DiscountType getDiscountType() {
 		return discountType;
-	}
-
-	public void setDiscountType(DiscountType discountType) {
-		this.discountType = discountType;
 	}
 
 	@Override

@@ -29,10 +29,7 @@ public class ProductBuilder extends AbstractBuilder<Product> {
 
 	@Override
 	public Product build() {
-        Product product = new Product(title);
-        product.setCategory(category);
-        product.setPrice(price);
-		return product;
+        return  new Product(title,price,category);
 	}
 
 }

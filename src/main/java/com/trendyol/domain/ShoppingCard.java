@@ -3,6 +3,7 @@ package com.trendyol.domain;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -53,7 +54,7 @@ public class ShoppingCard {
 
 	public double getCampaignDiscount() {
 
-		List<Category> categories = products.stream().map(Product::getCategory).distinct().collect(Collectors.toList());
+		List<Category> categories = products.stream().map(Product::getCategory).filter(Objects::nonNull).distinct().collect(Collectors.toList());
 		List<Double> totalDiscounts = categories.stream()
 				.map(category -> applyDiscounts(campaignCalculator.calculateFor(category, ProductUtils.categoryByProduct(products, category))))
 				.collect(Collectors.toList());
@@ -76,7 +77,6 @@ public class ShoppingCard {
 	public void print() {
 		double totalPrice = this.getTotalAmountAfterDiscounts();
 		double totalDiscount = this.getCampaignDiscount() + this.getCouponDiscount();
-		
 		PrinterUtils.print(products, totalPrice, totalDiscount);
 	}
 

@@ -24,26 +24,14 @@ public class Coupon implements Serializable {
 		return amount;
 	}
 
-	public void setAmount(double amount) {
-		this.amount = amount;
-	}
-
 	public int getDiscount() {
 		return discount;
-	}
-
-	public void setDiscount(int discount) {
-		this.discount = discount;
 	}
 
 	public DiscountType getDiscountType() {
 		return discountType;
 	}
-
-	public void setDiscountType(DiscountType discountType) {
-		this.discountType = discountType;
-	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
