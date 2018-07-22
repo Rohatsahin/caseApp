@@ -14,7 +14,7 @@ public class SampleData {
 	 *  sample creating a new  category
 	 */
 	public static final Category food = new Category("food");
-	public static final Category foodFress = new Category("food",food);
+	public static final Category foodFress = new Category("foodFress",food);
 
 	
 	/**
