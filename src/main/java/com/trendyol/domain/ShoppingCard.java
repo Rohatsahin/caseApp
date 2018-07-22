@@ -3,7 +3,6 @@ package com.trendyol.domain;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -92,7 +91,7 @@ public class ShoppingCard {
 	private double applyCoupon(Coupon coupon) {
 		double totalDiscountBeforeCounpon = ProductUtils.getTotalAmountOfProducts(products) - getCampaignDiscount();
 		
-		return Objects.isNull(coupon) ? 0.0 : couponCalculator.calculateFor(coupon, totalDiscountBeforeCounpon);
+		return couponCalculator.calculateFor(coupon, totalDiscountBeforeCounpon);
 	}
 
 }

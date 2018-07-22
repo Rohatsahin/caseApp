@@ -1,5 +1,7 @@
 package com.trendyol.service.impl;
 
+import java.util.Objects;
+
 import com.trendyol.entity.coupon.Coupon;
 import com.trendyol.entity.enums.DiscountType;
 import com.trendyol.service.CouponCalculator;
@@ -8,7 +10,7 @@ public class CouponCalculatorImpl implements CouponCalculator {
 
 	@Override
 	public double calculateFor(Coupon coupon, double totalDiscountBeforeCounpon) {
-		return calculate(coupon, totalDiscountBeforeCounpon);
+		return Objects.isNull(coupon) ? 0.0 :calculate(coupon, totalDiscountBeforeCounpon);
 	}
 
 	private double calculate(Coupon coupon, double totalDiscountBeforeCounpon) {
