@@ -167,5 +167,21 @@ public class ShoppingCardTest {
 		
 		assertThat(totalAmountAfterDiscounts, equalTo(432.0));
 	}
+	
+	@Test
+	public void shouldPrintCard() {
+		
+		Category category = new CategoryBuilder().title("food").build();
+		Product product = new ProductBuilder().title("apple").price(100.0).category(category).build();
+		Product product1 = new ProductBuilder().title("almonds").price(150.0).category(category).build();
+		Coupon coupon = new CouponBuilder().amount(100).discount(10).discountType(DiscountType.Rate).build();
+		
+		shoppingCard.addItem(product, 3);
+		shoppingCard.addItem(product1, 1);
+		shoppingCard.addCoupon(coupon);
+		
+		shoppingCard.print();
+		System.out.println("Delivery Const : "+ shoppingCard.getDeliveryCost());
+	}
 
 }
