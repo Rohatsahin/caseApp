@@ -1,6 +1,7 @@
 package com.trendyol.example;
 
 import com.trendyol.constants.BaseConstants;
+import com.trendyol.data.SampleCampaignSource;
 import com.trendyol.data.SampleData;
 import com.trendyol.domain.ShoppingCard;
 import com.trendyol.service.CampaignCalculator;
@@ -18,7 +19,9 @@ public class SampleRunner {
 		ShoppingCard shoppingCard = new ShoppingCard();
 		DeliveryCostCalculator deliveryCostCalculator = 
 				new DeliveryCostCalculatorImpl(BaseConstants.costPerDelivery, BaseConstants.costPerProduct, BaseConstants.fixedCost);
-		CampaignCalculator campaignCalculator = new CampaignCalculatorImpl();
+		SampleCampaignSource sampleCampaignSource = new SampleCampaignSource();
+		CampaignCalculator campaignCalculator = new CampaignCalculatorImpl(sampleCampaignSource);
+		
 		CouponCalculator couponCalculator = new CouponCalculatorImpl();
 		
 		

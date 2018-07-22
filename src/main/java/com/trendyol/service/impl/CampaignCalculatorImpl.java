@@ -1,11 +1,9 @@
 package com.trendyol.service.impl;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
-import com.trendyol.data.SampleData;
+import com.trendyol.data.SampleCampaignSource;
 import com.trendyol.entity.campaign.Campaign;
 import com.trendyol.entity.category.Category;
 import com.trendyol.entity.enums.DiscountType;
@@ -13,11 +11,20 @@ import com.trendyol.entity.product.Product;
 import com.trendyol.service.CampaignCalculator;
 
 public class CampaignCalculatorImpl implements CampaignCalculator {
+	
+	/**
+	 * this a campaign source fetch campaign now a return static source 
+	 */
+	private SampleCampaignSource sampleCampaignSource;
+	
+	public CampaignCalculatorImpl(SampleCampaignSource sampleCampaignSource) {
+		this.sampleCampaignSource = sampleCampaignSource;
+	}
 
 	@Override
 	public double[] calculateFor(Category category, List<Product> products) {
 
-		List<Campaign> campaigns = getCampaingByCategory(category);
+		List<Campaign> campaigns = sampleCampaignSource.getCampaingByCategory(category);
 		long totalProduct = products.stream().count();
 		double totalProductAmount = products.stream().map(Product::getPrice).reduce(0.0, (x, y) -> x + y).doubleValue();
 
@@ -34,14 +41,5 @@ public class CampaignCalculatorImpl implements CampaignCalculator {
 			return campaign.getDiscount();
 		}
 		return 0.0;
-	}
-
-	/*
-	 * filter campaign by category in all sample campaign
-	 */
-	private List<Campaign> getCampaingByCategory(Category category) {
-		return Arrays.asList(SampleData.campaign1, SampleData.campaign2, SampleData.campaign3).stream()
-				.filter(campaign -> (campaign.getCategory().equals(category) || campaign.getCategory().equals(category.getParentCategory())))
-				.collect(Collectors.toList());
 	}
 }
