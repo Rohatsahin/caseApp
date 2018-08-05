@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                 sh 'chmod 755 gradlew'
                 sh './gradlew build assemble'
                 archiveArtifacts artifacts: '**/trendyol*.jar', fingerprint: true
@@ -18,8 +19,13 @@ pipeline {
             }
         }
         stage('Deploy') {
+            when {
+              expression {
+                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
+              }
+            }
             steps {
-                echo 'Deploying....'
+                echo 'Deploying...'
             }
         }
     }
