@@ -7,7 +7,7 @@ pipeline {
                 echo 'Building..'
                 sh 'chmod 755 gradlew'
                 sh './gradlew build assemble'
-                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+                archiveArtifacts artifacts: '**/trendyol*.jar', fingerprint: true
             }
         }
         stage('Test') {
