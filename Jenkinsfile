@@ -1,6 +1,7 @@
 pipeline {
-    agent any
-
+    agent  { 
+    	label 'gradle' 
+    }
     stages {
         stage('Build') {
             steps {
